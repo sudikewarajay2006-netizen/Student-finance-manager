@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Finance Manager</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #171c29 0%, #122845 100%);
+            color: #f2f2f2;
+            min-height: 100vh;
+            display: flex;
+        }
+        .sidebar {
+            background: linear-gradient(115deg, #00aaff 0%, #005586 100%);
+            width: 230px;
+            min-height: 100vh;
+            padding: 36px 22px;
+            box-shadow: 2px 0 20px 0 #0005;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .sidebar h2 {
+            font-size: 2rem;
+            margin-bottom: 50px;
+            line-height: 1.1;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 2px 2px 15px #00aaff55;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar li {
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+            cursor: pointer;
+            transition: background 0.21s, color 0.21s, border-radius 0.2s;
+            padding: 10px 18px;
+            border-radius: 14px;
+        }
+        .sidebar li:hover,
+        .sidebar .active {
+            background: #fff4;
+            color: #fff;
+            font-weight: bold;
+            box-shadow: 0px 2px 16px #00c5fb44;
+        }
+        .main-content {
+            flex: 1;
+            padding: 44px 55px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 46px;
+        }
+        .welcome {
+            font-size: 1.7rem;
+            color: #98e0fd;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-shadow: 0 2px 12px #007eeb44;
+        }
+        .add-btn {
+            background: linear-gradient(90deg, #4adede, #2577fb);
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 13px 38px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            box-shadow: 0 2px 14px #00befe55;
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .add-btn:hover {
+            background: linear-gradient(90deg, #2577fb, #4adede);
+            box-shadow: 0 6px 20px #00e2ff77;
+        }
+        .cards {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 35px;
+        }
+        .card {
+            background: #122845cc;
+            border-radius: 18px;
+            padding: 24px 38px;
+            width: 242px;
+            box-shadow: 0 4px 36px #19e4ff21;
+            font-size: 1.15rem;
+            transition: transform 0.19s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 10px 30px #7df2fe74;
+        }
+        .card.accent {
+            background: linear-gradient(120deg, #13eefc 40%, #35afff 100%);
+            color: #17425e;
+            font-weight: 700;
+            box-shadow: 0 8px 16px #13eefc99, 0 1px 10px #fff4;
+        }
+        .transactions {
+            background: #083f6599;
+            padding: 32px;
+            border-radius: 20px;
+            box-shadow: 0 4px 29px #1dfaff0b;
+        }
+        .transactions h2 {
+            color: #7bdfff;
+            margin-bottom: 18px;
+            font-size: 1.35rem;
+        }
+        .transactions table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .transactions th, .transactions td {
+            padding: 13px 19px;
+            text-align: left;
+            color: #e3f6fb;
+        }
+        .transactions th {
+            background: #133a5575;
+            font-size: 1rem;
+        }
+        .transactions td {
+            background: #10538280;
+            border-bottom: 1px solid #1af1f433;
+            font-size: 0.95rem;
+        }
+        .transactions tr:last-child td {
+            border-bottom: none;
+        }
+        @media (max-width: 900px) {
+            .cards {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .main-content {
+                padding: 25px 8vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Finance<br>Manager</h2>
+        <ul>
+            <li class="active">Dashboard</li>
+            <li>Expenses</li>
+            <li>Goals</li>
+            <li>Reports</li>
+            <li>Profile</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="header">
+            <span class="welcome">Welcome, Boss!</span>
+            <button class="add-btn">+ Add Transaction</button>
+        </div>
+        <div class="cards">
+            <div class="card accent">
+                <h3>Total Balance</h3>
+                <p>&#8377;24,500</p>
+            </div>
+            <div class="card">
+                <h3>Spent This Month</h3>
+                <p>&#8377;6,000</p>
+            </div>
+            <div class="card">
+                <h3>Savings Goal</h3>
+                <p>75% Achieved</p>
+            </div>
+        </div>
+        <div class="transactions">
+            <h2>Recent Transactions</h2>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Amount (<span>&#8377;</span>)</th>
+                </tr>
+                <tr>
+                    <td>13 Sep 2025</td>
+                    <td>Mess Bill</td>
+                    <td>Food</td>
+                    <td>-1500</td>
+                </tr>
+                <tr>
+                    <td>10 Sep 2025</td>
+                    <td>Part-Time Salary</td>
+                    <td>Income</td>
+                    <td>+4000</td>
+                </tr>
+                <tr>
+                    <td>06 Sep 2025</td>
+                    <td>Books</td>
+                    <td>Education</td>
+                    <td>-800</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+  </html>
